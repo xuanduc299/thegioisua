@@ -1,0 +1,28 @@
+<?php
+    require_once('../db/connect.php');
+    $name=$address=$email=$phone_number=$message="";
+    if(isset($_POST['name'])){
+        $name=$_POST['name'];
+    }
+    if(isset($_POST['address'])){
+        $address=$_POST['address'];
+    }
+    if(isset($_POST['phone_number'])){
+        $phone_number=$_POST['phone_number'];
+    }
+    if(isset($_POST['message'])){
+        $message=$_POST['message'];
+    }
+    if(isset($_POST['email'])){
+        $email=$_POST['email'];
+    }
+    $sql="insert into lien_he(ho_ten,dia_chi,email,so_dien_thoai,noi_dung) value('$name','$address','$email','$phone_number','$message')";
+    $result=mysqli_query($connect,$sql);
+    if($result===true){
+       header('location:../sucess_contact.php');
+       exit();
+    }else{
+        header('location:../erro_contact.php');
+        exit();
+    }
+ ?>
