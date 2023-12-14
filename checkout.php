@@ -1,26 +1,26 @@
 <?php
-require_once('utils/utility.php');
-require_once('db/dbhelper.php');
-require_once('api/checkout-form.php');
+// require_once('utils/utility.php');
+// require_once('db/dbhelper.php');
+// require_once('api/checkout-form.php');
 include './database/database.php';
-$cart = [];
-if (isset($_COOKIE['cart'])) {
-    $json = $_COOKIE['cart'];
-    $cart = json_decode($json, true);
-}
-$idList = [];
-foreach ($cart as $item) {
-    $idList[] = $item['id'];
-}
-if (count($idList) > 0) {
-    $idList = implode(',', $idList);
+// $cart = [];
+// if (isset($_COOKIE['cart'])) {
+//     $json = $_COOKIE['cart'];
+//     $cart = json_decode($json, true);
+// }
+// $idList = [];
+// foreach ($cart as $item) {
+//     $idList[] = $item['id'];
+// }
+// if (count($idList) > 0) {
+//     $idList = implode(',', $idList);
 
 
-    $sql = "select * from san_pham where id in ($idList) ";
-    $cartList = executeResult($sql);
-} else {
-    $cartList = [];
-}
+//     $sql = "select * from san_pham where id in ($idList) ";
+//     $cartList = executeResult($sql);
+// } else {
+//     $cartList = [];
+// }
 
 ?>
 <!DOCTYPE html>
